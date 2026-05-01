@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Expense Tracker</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #f4f6f9;
+            margin: 0;
+        }
+        
+        .navbar {
+            background: #2c3e50;
+            padding: 15px;
+            color: white;
+            text-align: center;
+            font-size: 22px;
+        }
+        
+        .container {
+            width: 80%;
+            margin: auto;
+            margin-top: 30px;
+        }
+        
+        .btn {
+            padding: 10px 15px;
+            background: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+        
+        .btn:hover {
+            background: #2980b9;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background: white;
+        }
+        
+        th,
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+            text-align: center;
+        }
+        
+        th {
+            background: #3498db;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="navbar">💰 Expense Tracker</div>
+
+    <div class="container">
+        <a href="/add" class="btn">+ Add Expense</a>
+        <a href="/dashboard" class="btn">View Dashboard</a>
+
+        <table>
+            <tr>
+                <th>Amount</th>
+                <th>Category</th>
+            </tr>
+
+            {% for row in data %}
+            <tr>
+                <td>₹ {{ row.amount }}</td>
+                <td>{{ row.category }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+</body>
+
+</html>
